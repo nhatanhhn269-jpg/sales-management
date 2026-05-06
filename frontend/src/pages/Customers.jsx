@@ -13,7 +13,7 @@ const STATUS_LABELS = {
   NEW: 'Mới', CONSULTING: 'Đang tư vấn', QUOTED: 'Báo giá', CLOSED: 'Chốt đơn', LOST: 'Từ chối',
 };
 
-const SOURCES = ['Facebook', 'Zalo', 'Giới thiệu', 'Website', 'Khác'];
+const SOURCES = ['Tự tìm tới', 'Được giới thiệu', 'Ads ánh', 'Ads trang', 'Chào khách'];
 
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
