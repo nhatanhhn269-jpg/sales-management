@@ -1,5 +1,11 @@
 {
+  "name": "sales-management-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && node serve.js"
+  },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.21.2"
   }
 }
