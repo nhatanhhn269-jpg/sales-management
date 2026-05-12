@@ -1,7 +1,21 @@
 const { PrismaClient } = require('@prisma/client');
+const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
+  // Tạo admin mặc định nếu chưa có
+  const adminExists = await prisma.user.findUnique({ where: { username: 'admin' } });
+  if (!adminExists) {
+    await prisma.user.create({
+      data: {
+        username: 'admin',
+        password: await bcrypt.hash('admin123', 10),
+        role: 'ADMIN',
+      },
+    });
+    console.log('Đã tạo tài khoản admin (username: admin, password: admin123)');
+  }
+
   const customers = [
     { name: 'Nguyễn Thị An', phone: '0901234567', email: 'an@gmail.com', source: 'Facebook', status: 'CLOSED', type: 'VIP' },
     { name: 'Trần Văn Bình', phone: '0912345678', source: 'Zalo', status: 'CONSULTING', type: 'NEW' },
